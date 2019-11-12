@@ -8,10 +8,10 @@ source ./install/utils.sh
 keep_sudo_alive
 
 # Install applications
-seek_confirmation "Warning: This step install applications."
+seek_confirmation "Warning: This step will install applications and utilities."
 if is_confirmed; then
-  e_header "Please, configure you applications before installation:"
-  nano ${DOTFILES_DIRECTORY}/install/apps.sh
+  e_header "Please configure your applications before installation:"
+  vim ${DOTFILES_DIRECTORY}/install/apps.sh
   bash ./install/apps.sh
 else
   e_warning "Skipped applications install."
@@ -26,12 +26,12 @@ else
 fi
 
 # Install npm packages
-seek_confirmation "Warning: This step install npm packages"
-if is_confirmed; then
-  bash ./install/npm.sh
-else
-  e_warning "Skipped npm settings update."
-fi
+# seek_confirmation "Warning: This step install npm packages"
+# if is_confirmed; then
+#   bash ./install/npm.sh
+# else
+#   e_warning "Skipped npm settings update."
+# fi
 
 # Generate ssh
 seek_confirmation "Warning: This step generate SSH"
