@@ -12,13 +12,14 @@ _Check linked files to more details._
 - [dotfiles.sh](install/dotfiles.sh) - install and configure dotfiles.
 - [npm.sh](install/npm.sh) - install npm packages.
 - [setup.sh](install/setup.sh) - main installer.
-- [util.sh](install/util.sh) - support functions for other installers.
+- [utils.sh](install/utils.sh) - support functions for other installers.
 
 ### Settings Files
 
-- [gitconfig](.gitconfig) - basic git settings.
+- [gitconfig](.gitconfig) - basic global git settings.
 - [gitignore_global](.gitignore_global) - global gitignore.
-- [zshrc](.zshrc) - terminal configs with aliases, paths, plugins and theme.
+- [vimrc](vimrc) - vim configuration and plugins
+- [tmux.conf](tmux.conf) - tmux configuration
 
 ## Prerequisites
 
@@ -27,37 +28,33 @@ _Check linked files to more details._
 
 ## Installation
 
-**Note:** I use the [Windows 10 Setup Script](https://github.com/samuelramox/windows-setup) script to configure `Windows 10`, install some apps and `WSL`. To use the script, just download and open it with `PowerShell`. If you use it, skip to step [Install dotfiles](#install-dotfiles).
+See SamuelRamox's [Windows 10 Setup Script](https://github.com/samuelramox/windows-setup) to configure `Windows 10`, install some apps and `WSL`. To use the script, just download and open it with `PowerShell`. If you use it, skip to step [Install dotfiles](#install-dotfiles).
 
-### Install WSL
+### 1. Install WSL
 
-If you do not already have `WSL`, follow these steps to install. Open `Powershell` by searching for it in _Search_ and _right-clicking_ for a context menu and clicking _“Run as Administrator”_. Enter the following command:
+If you do not already have `WSL`, open `Powershell` as an Administrator and run these commands:
 
-```
+```powershell
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
 Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform
 ```
 
-Additionally, if you want to make WSL 2 your default architecture you can do so with this command:
+Make WSL 2 your default architecture you can do so with this command:
 
-```
+```powershell
 wsl --set-default-version 2
 ```
 
-After restarting, install Ubuntu from the [Microsoft Store](https://www.microsoft.com/pt-br/p/ubuntu/9nblggh4msv6?activetab=pivot:overviewtab) or through the terminal:
+After restarting, install Ubuntu from the [Microsoft Store](https://aka.ms/wsl-ubuntu)
 
-```
-curl.exe -L -o ubuntu.appx https://aka.ms/wsl-ubuntu
-```
+Launch `Ubuntu.exe` from the Start menu. 
 
-Launch `Ubuntu.exe` from the _Start Menu_. You’ll be asked to enter a username and password (for sudo stuff).
-
-### Install dotfiles
+### 2. Run the Setup Script
 
 If you already have `Windows 10` and `WSL` installed, run these commands in `WSL`:
 
-```
-git clone https://github.com/samuelramox/wsl-setup.git
+```bash
+git clone https://github.com/stvhwrd/wsl-setup.git
 chmod 700 wsl-setup/ -R
 cd wsl-setup
 ./install/setup.sh
