@@ -1,14 +1,14 @@
 # Don't remove the quotation marks
 
 [user]
-	name = "Your name here"
-	email = Your e-mail here
+	name = "Stevie Howard"
+	email = "Stevie.Howard@microsoft.com"
 
 [github]
-	user = Your username here
+	user = stvhwrd
 
 [core]
-	editor = nano
+	editor = vim
 	excludesfile = ~/.gitignore_global
 
 [color]
